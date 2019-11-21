@@ -9,11 +9,14 @@ This OTP view is beautifully design to be used in otp field which support auto p
  
   s.homepage         = 'https://github.com/sarojraut/SROTPView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
+
   s.author           = { 'Saroj Raut' => 'sarojraut09@gmail.com' }
-  s.source           = { :git => 'https://github.com/sarojraut/FantasticView.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/sarojraut/SROTPView.git', :tag => s.version.to_s }
  
   s.ios.deployment_target = '10.0'
   s.source_files = 'SROTPView/SROTPView.swift','SROTPView/SROTPTextField.swift'
   
  
 end
+
+
