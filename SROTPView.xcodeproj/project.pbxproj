@@ -10,6 +10,8 @@
 		84DAA52F238668D3006A12CF /* SROTPView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DAA525238668D3006A12CF /* SROTPView.framework */; };
 		84DAA534238668D3006A12CF /* SROTPViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DAA533238668D3006A12CF /* SROTPViewTests.swift */; };
 		84DAA536238668D3006A12CF /* SROTPView.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DAA528238668D3006A12CF /* SROTPView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84DAA54523867906006A12CF /* SROTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DAA54323867905006A12CF /* SROTPView.swift */; };
+		84DAA54623867906006A12CF /* SROTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DAA54423867905006A12CF /* SROTPTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		84DAA52E238668D3006A12CF /* SROTPViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SROTPViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DAA533238668D3006A12CF /* SROTPViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SROTPViewTests.swift; sourceTree = "<group>"; };
 		84DAA535238668D3006A12CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DAA54323867905006A12CF /* SROTPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SROTPView.swift; sourceTree = "<group>"; };
+		84DAA54423867905006A12CF /* SROTPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SROTPTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 		84DAA527238668D3006A12CF /* SROTPView */ = {
 			isa = PBXGroup;
 			children = (
+				84DAA54423867905006A12CF /* SROTPTextField.swift */,
+				84DAA54323867905006A12CF /* SROTPView.swift */,
 				84DAA528238668D3006A12CF /* SROTPView.h */,
 				84DAA529238668D3006A12CF /* Info.plist */,
 			);
@@ -148,6 +154,7 @@
 				TargetAttributes = {
 					84DAA524238668D3006A12CF = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					84DAA52D238668D3006A12CF = {
 						CreatedOnToolsVersion = 11.0;
@@ -195,6 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DAA54623867906006A12CF /* SROTPTextField.swift in Sources */,
+				84DAA54523867906006A12CF /* SROTPView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +349,7 @@
 		84DAA53A238668D3006A12CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 46FE8LX528;
@@ -356,6 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Saroj.SROTPView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +375,7 @@
 		84DAA53B238668D3006A12CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 46FE8LX528;
@@ -388,6 +400,7 @@
 		84DAA53D238668D3006A12CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46FE8LX528;
 				INFOPLIST_FILE = SROTPViewTests/Info.plist;
@@ -406,6 +419,7 @@
 		84DAA53E238668D3006A12CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46FE8LX528;
 				INFOPLIST_FILE = SROTPViewTests/Info.plist;
