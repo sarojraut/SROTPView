@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SROTPView: UIView {
+public class SROTPView: UIView {
     
     enum KeyboardType: Int {
         case numeric
@@ -16,53 +16,54 @@ class SROTPView: UIView {
         case alphaNumeric
     }
     
-    var otpTextFieldsCount: Int = 4
+    public var otpTextFieldsCount: Int = 4
     
     var otpTextFieldInputType: KeyboardType = .numeric
     
-    var otpTextFieldFont: UIFont = UIFont.systemFont(ofSize: 20)
+    public var otpTextFieldFont: UIFont = UIFont.systemFont(ofSize: 20)
     
-    var otpTextFieldEntrySecureType: Bool = false
+    public var otpTextFieldEntrySecureType: Bool = false
     
-    var otpFilledEntryDisplay: Bool = false
+    public var otpFilledEntryDisplay: Bool = false
     
-    var shouldRequireCursor: Bool = true
+    public var shouldRequireCursor: Bool = true
     
-    var cursorColor: UIColor = UIColor.blue
+    public var cursorColor: UIColor = UIColor.blue
     
-    var otpTextFieldSize: CGFloat = 26
+    public var otpTextFieldSize: CGFloat = 26
     
-    var otpTextFieldSeparatorSpace: CGFloat = 37
+    public var otpTextFieldSeparatorSpace: CGFloat = 37
     
-    var otpTextFieldBorderWidth: CGFloat = 2
+    public var otpTextFieldBorderWidth: CGFloat = 2
     
-    var otpTextFieldActiveBorderWidth: CGFloat = 4
+    public var otpTextFieldActiveBorderWidth: CGFloat = 4
     
-    var otpTextFieldDefaultBackgroundColor: UIColor = UIColor.clear
+    public var otpTextFieldDefaultBackgroundColor: UIColor = UIColor.clear
     
-    var otpTextFieldEnteredBackgroundColor: UIColor = UIColor.clear
+    public var otpTextFieldEnteredBackgroundColor: UIColor = UIColor.clear
     
-    var otpTextFieldDefaultBorderColor: UIColor = UIColor.gray
+    public var otpTextFieldDefaultBorderColor: UIColor = UIColor.gray
     
+    public var otpTextFieldActiveBorderColor: UIColor = UIColor.black
     
-    var otpTextFieldActiveBorderColor: UIColor = UIColor.black
+    public var otpTextFieldErrorBorderColor: UIColor?
     
-    var otpTextFieldErrorBorderColor: UIColor?
+    public var otpTextFieldFontColor: UIColor?
     
     var aciveTextField:SROTPTextField?
     
     fileprivate var secureEntryData = [String]()
     
-    var hasEnteredAllOTP = false
+    public var hasEnteredAllOTP = false
     
-    var otpEnteredString :((String)->())?
+    public var otpEnteredString :((String)->())?
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
     }
     
     //MARK:Initialize UI
-    func initializeUI() {
+    public func initializeUI() {
         layer.masksToBounds = true
         layoutIfNeeded()
         if (CGFloat(otpTextFieldsCount - 1)*otpTextFieldSeparatorSpace + CGFloat(otpTextFieldsCount)*otpTextFieldSize) > self.bounds.size.width{
@@ -128,6 +129,7 @@ class SROTPView: UIView {
         otpTextField.delegate = self
         otpTextField.tag = index + 1
         otpTextField.font = otpTextFieldFont
+        otpTextField.textColor = otpTextFieldFontColor
         switch otpTextFieldInputType {
         case .numeric:
             otpTextField.keyboardType = .numberPad
@@ -150,8 +152,8 @@ class SROTPView: UIView {
         return otpTextField
     }
     
-    //MARK:Calculate enteredString 
-
+    //MARK:Calculate enteredString
+    
     fileprivate func calculateEnteredOTPSTring(isDeleted: Bool) {
         if isDeleted {
             hasEnteredAllOTP = false
@@ -202,7 +204,7 @@ class SROTPView: UIView {
 }
 
 extension SROTPView: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         (textField as? SROTPTextField)?.shapeLayer.fillColor = otpTextFieldActiveBorderColor.cgColor
         (textField as? SROTPTextField)?.shapeLayer.strokeColor = otpTextFieldActiveBorderColor.cgColor
         (textField as? SROTPTextField)?.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
@@ -211,7 +213,7 @@ extension SROTPView: UITextFieldDelegate {
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let replacedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
         
         if !replacedText.isEmpty && otpTextFieldInputType == .alphabet && replacedText.rangeOfCharacter(from: .letters) == nil {
