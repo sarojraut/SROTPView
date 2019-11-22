@@ -1,6 +1,0 @@
-framework module SROTPView {
-  umbrella header "SROTPView-umbrella.h"
-
-  export *
-  module * { export * }
-}
