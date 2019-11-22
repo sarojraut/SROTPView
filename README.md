@@ -31,7 +31,7 @@ Create a `Cartfile` that lists the framework and run `carthage update`. Follow t
 github "sarojraut/SROTPView"
 ```
 #### Manually
-1. Download and drop ```YourLibrary.swift``` in your project.  
+1. Download and drop ```SROTPView.swift and SROTPTextField.swift``` in your project.  
 2. Congratulations!  
 
 ## Usage example
