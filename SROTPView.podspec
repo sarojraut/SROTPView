@@ -9,7 +9,7 @@ This OTP view is beautifully design to be used in otp field which support auto p
  
    s.homepage         = 'https://github.com/sarojraut/SROTPView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.screenshots     = 'Simulator Screen Shot - iPhone Xs - 2019-11-22 at 12.07.06.png'
+  s.screenshots     = 'https://github.com/sarojraut/SROTPView/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xs%20-%202019-11-22%20at%2012.07.06.png'
 
 
 
