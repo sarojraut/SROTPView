@@ -23,7 +23,7 @@ pod 'SROTPView'
 
 ## Author
 
-sarojraut09@gmail.com, saroj.raut@swifttech.com.np
+sarojraut09@gmail.com
 
 ## License
 
