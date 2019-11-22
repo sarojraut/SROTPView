@@ -11,7 +11,7 @@ import SROTPView
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var otpView: SROTPView! //dont use SROTPField
+    @IBOutlet weak var otpView: SROTPView! //dont use SROTPField use SROTPView
     
     var enteredOtp: String = ""
     
