@@ -6,6 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SROTPView.svg?style=flat)](https://cocoapods.org/pods/SROTPView)
 
 ## Example
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xs%20-%202019-11-22%20at%2012.07.06.png)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
