@@ -294,4 +294,11 @@ extension SROTPView: UITextFieldDelegate {
         textField.becomeFirstResponder()
         calculateEnteredOTPSTring(isDeleted: true)
     }
+    
+    func clearAll() {
+        for index in stride(from: 0, to: otpTextFieldsCount, by: 1) {
+           let otpTextField = getotpTextField(forIndex: index)
+            deleteText(in: otpTextField)
+        }
+    }
 }
