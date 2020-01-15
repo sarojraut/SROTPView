@@ -301,5 +301,7 @@ extension SROTPView: UITextFieldDelegate {
                 deleteText(in: otpTextField)
             }
         }
+        let textField = viewWithTag(1) as? SROTPTextField
+        textField?.becomeFirstResponder()
     }
 }
