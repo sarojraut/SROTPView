@@ -230,7 +230,7 @@ extension SROTPView: UITextFieldDelegate {
                 textField.text = " "
             }else {
                 if otpTextFieldEntrySecureType {
-                    textField.text = "*"
+                    textField.text = "●"
                 }
                 else {
                     textField.text = string
