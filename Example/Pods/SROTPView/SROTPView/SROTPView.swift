@@ -75,15 +75,16 @@ public class SROTPView: UIView {
         topView.backgroundColor = UIColor.clear
         self.addSubview(topView)
         aciveTextField = (viewWithTag(1) as? SROTPTextField)
-        aciveTextField?.becomeFirstResponder()
+        
         self.aciveTextField?.shapeLayer.fillColor = otpTextFieldDefaultBorderColor.cgColor
         self.aciveTextField?.shapeLayer.strokeColor = otpTextFieldDefaultBorderColor.cgColor
-        self.aciveTextField?.shapeLayer.lineWidth = otpTextFieldBorderWidth
-        self.aciveTextField = viewWithTag(1) as? SROTPTextField
+        self.aciveTextField?.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
+        self.aciveTextField?.layoutSubviews()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(getResponder))
         tapGesture.numberOfTapsRequired = 1
         topView.isUserInteractionEnabled = true
         topView.addGestureRecognizer(tapGesture)
+        aciveTextField?.becomeFirstResponder()
     }
     
     //MARK:Get Touch event when touch on view
@@ -111,6 +112,7 @@ public class SROTPView: UIView {
             
             secureEntryData.append("")
         }
+        
     }
     
     //MARK:Get textFields
@@ -139,7 +141,11 @@ public class SROTPView: UIView {
             otpTextField.keyboardType = .namePhonePad
         }
         otpTextField.borderColorOfTextField = otpTextFieldDefaultBorderColor
-        otpTextField.borderWidthOfTextField = otpTextFieldBorderWidth
+        if otpTextField.tag != 1{
+            otpTextField.borderWidthOfTextField = otpTextFieldBorderWidth
+        }else{
+            otpTextField.borderWidthOfTextField = otpTextFieldActiveBorderWidth
+        }
         if shouldRequireCursor {
             otpTextField.tintColor = cursorColor
         }
@@ -202,6 +208,7 @@ public class SROTPView: UIView {
         }
     }
 }
+
 
 extension SROTPView: UITextFieldDelegate {
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

@@ -139,7 +139,11 @@ public class SROTPView: UIView {
             otpTextField.keyboardType = .namePhonePad
         }
         otpTextField.borderColorOfTextField = otpTextFieldDefaultBorderColor
-        otpTextField.borderWidthOfTextField = otpTextFieldBorderWidth
+        if otpTextField.tag != 1{
+                   otpTextField.borderWidthOfTextField = otpTextFieldBorderWidth
+               }else{
+                   otpTextField.borderWidthOfTextField = otpTextFieldActiveBorderWidth
+               }
         if shouldRequireCursor {
             otpTextField.tintColor = cursorColor
         }
