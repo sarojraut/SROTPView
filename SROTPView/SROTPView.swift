@@ -234,7 +234,7 @@ extension SROTPView: UITextFieldDelegate {
                 textField.text = " "
             }else {
                 if otpTextFieldEntrySecureType {
-                    textField.text = "*"
+                    textField.text = "●"
                 }
                 else {
                     textField.text = string
@@ -297,5 +297,15 @@ extension SROTPView: UITextFieldDelegate {
         textField.text = ""
         textField.becomeFirstResponder()
         calculateEnteredOTPSTring(isDeleted: true)
+    }
+    
+    public func clearAll() {
+        for index in stride(from: 0, to: otpTextFieldsCount, by: 1) {
+            if let otpTextField = viewWithTag(index + 1) as? SROTPTextField {
+                deleteText(in: otpTextField)
+            }
+        }
+        let textField = viewWithTag(1) as? SROTPTextField
+        textField?.becomeFirstResponder()
     }
 }
