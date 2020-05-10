@@ -6,53 +6,45 @@
 //  Copyright © 2019 admin. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class SROTPTextField: UITextField {
-    var borderColorOfTextField: UIColor = UIColor.black
-    var placeholderString: String = ""
-    var borderWidthOfTextField: CGFloat = 2
-    var shapeLayer: CAShapeLayer!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+class OTPTextField: UITextField {
+
+    var previousTextField: OTPTextField?
+    var nextTextField: OTPTextField?
+    let border = UIView()
+
+    override public func deleteBackward(){
+        if text == "" {
+            previousTextField?.becomeFirstResponder()
+        }
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    func addborder(color:UIColor,height:CGFloat){
+        border.backgroundColor = color
+        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
+        self.addSubview(border)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+
+    func changeToActiveBorder(color:UIColor,height:CGFloat){
+        border.backgroundColor = color
+        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        border.frame = CGRect(x: 0, y: frame.size.height - 4, width: frame.size.width, height: height)
     }
-    
-    func initalizeUI() {
-     
-        addBottomView()
-        self.placeholder = placeholderString
-        autocorrectionType = .no
-        textAlignment = .center
-    }
-    
-    override func deleteBackward() {
-        super.deleteBackward()
-        
-        _ = delegate?.textField?(self, shouldChangeCharactersIn: NSMakeRange(0, 0), replacementString: "")
-    }
-    
-    
-    fileprivate func addBottomView() {
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: bounds.size.height))
-        path.addLine(to: CGPoint(x: bounds.size.width, y: bounds.size.height))
-        path.close()
-        
-        shapeLayer = CAShapeLayer()
-        shapeLayer.path = path.cgPath
-        shapeLayer.lineWidth = borderWidthOfTextField
-        shapeLayer.fillColor = backgroundColor?.cgColor
-        shapeLayer.strokeColor = borderColorOfTextField.cgColor
-        
-        layer.addSublayer(shapeLayer)
-    }
+
+    func changeToErrorBorder(color:UIColor,height:CGFloat){
+           border.backgroundColor = color
+           border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+           border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
+       }
+
+
+    func changeToInActiveBorder(color:UIColor,height:CGFloat){
+            border.backgroundColor = color
+            border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+            border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
+        }
 }
+

@@ -6,10 +6,14 @@
 [![Platform](https://img.shields.io/cocoapods/p/SROTPView.svg?style=flat)](https://cocoapods.org/pods/SROTPView)
 
 ## Example
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/sample.gif)
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+- iOS 10.0+
+- Xcode 11
 
 ## Installation
 
@@ -20,10 +24,75 @@ it, simply add the following line to your Podfile:
 pod 'SROTPView'
 ```
 
+#### Carthage
+Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/SROTPView.framework` to an iOS project.
+
+```
+github "sarojraut/SROTPView"
+```
+#### Manually
+1. Download and drop ```SROTPView.swift and SROTPTextField.swift``` in your project.  
+2. Congratulations!  
+
+## Usage example
+
+```swift
+import UIKit
+import SROTPView
+
+class ClassThatUseThisLibrary: UIViewController {
+
+    @IBOutlet weak var otpView: SROTPView! //dont use SROTPField use SROTPView
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        otpView.otpTextFieldsCount = 4
+        otpView.otpTextFieldActiveBorderColor = UIColor.white
+        otpView.otpTextFieldDefaultBorderColor = UIColor.white
+        otpView.otpTextFieldFontColor = UIColor.white
+        otpView.cursorColor = UIColor.white
+        otpView.otpTextFieldBorderWidth = 2
+        otpView.otpEnteredString = { pin in
+            print("The entered pin is \(pin)")
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+         otpView.initializeUI()
+    }
+}
+
+```
+
+## Contribute
+
+We would love you for the contribution to **SROTPView**, check the ``LICENSE`` file for more info.
 ## Author
 
-sarojraut09@gmail.com, saroj.raut@swifttech.com.np
+sarojraut09@gmail.com
 
 ## License
 
 SROTPView is available under the MIT license. See the LICENSE file for more info.
+
+Copyright (c) 2019 sarojraut09@gmail.com 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
