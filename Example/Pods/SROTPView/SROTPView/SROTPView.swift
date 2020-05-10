@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 
+public enum SROTPType {
+    case Rounded
+    case Bordered
+    case UnderLined
+}
 
 public class SROTPView: UIView {
     
-    
+    public var otpType : SROTPType = .Rounded
     public var showsWarningColor = false
     public var hasEnteredAllOTP = false
     public var space: CGFloat = 28
@@ -38,13 +43,15 @@ public class SROTPView: UIView {
     
     
   public  func setUpUI(){
+        //otpStackView = OTPStackView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.size))
+        otpStackView.otpType = self.otpType
         otpStackView.activeHeight = self.activeHeight
         otpStackView.inactiveHeight = self.inactiveHeight
         otpStackView.otpTextFieldActiveBorderColor = self.otpTextFieldActiveBorderColor
         otpStackView.otpTextFieldDefaultBorderColor = self.otpTextFieldDefaultBorderColor
         otpStackView.secureEntry = self.secureEntry
         self.addSubview(otpStackView)
-        otpStackView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        otpStackView.heightAnchor.constraint(equalToConstant: size).isActive = true
         otpStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         otpStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         otpStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
@@ -99,6 +106,7 @@ public class SROTPView: UIView {
         }
     }
     var activeTextField:OTPTextField?
+    public var otpType:SROTPType = .Bordered
 
     var textFieldsCollection: [OTPTextField] = []
     public var showsWarningColor = false
@@ -168,6 +176,13 @@ public class SROTPView: UIView {
     
     //Customisation and setting OTPTextFields
     func setupTextField(_ textField: OTPTextField){
+        switch otpType {
+        case .Rounded:
+            textField.layer.cornerRadius = self.size/2
+            textField.clipsToBounds = true
+        default:
+            break
+        }
         textField.delegate = self
         textField.textContentType = .none
         //Adding constraints wrt to its parent i.e OTPStackView
@@ -187,6 +202,7 @@ public class SROTPView: UIView {
         textField.font = UIFont.systemFont(ofSize: 24)
         textField.textColor = otpTextFieldFontColor
         textField.keyboardType = .numberPad
+        textField.otpType = self.otpType
         textField.addborder(color: otpTextFieldDefaultBorderColor,height: CGFloat(inactiveHeight))
     }
     

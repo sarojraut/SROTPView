@@ -14,6 +14,7 @@ class OTPTextField: UITextField {
     var previousTextField: OTPTextField?
     var nextTextField: OTPTextField?
     let border = UIView()
+    public var otpType:SROTPType = .Bordered
 
     override public func deleteBackward(){
         if text == "" {
@@ -22,29 +23,62 @@ class OTPTextField: UITextField {
     }
 
     func addborder(color:UIColor,height:CGFloat){
-        border.backgroundColor = color
-        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-        border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
-        self.addSubview(border)
+        switch otpType {
+        case .Bordered,.Rounded:
+            self.layer.borderWidth = height
+            self.layer.borderColor = color.cgColor
+      
+        default:
+             border.backgroundColor = color
+             border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+             border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
+             self.addSubview(border)
+        }
+       
     }
 
     func changeToActiveBorder(color:UIColor,height:CGFloat){
-        border.backgroundColor = color
-        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-        border.frame = CGRect(x: 0, y: frame.size.height - 4, width: frame.size.width, height: height)
+        switch otpType {
+         case .Bordered,.Rounded:
+            self.layer.borderWidth = height
+            self.layer.borderColor = color.cgColor
+         default:
+              border.backgroundColor = color
+              border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+              border.frame = CGRect(x: 0, y: frame.size.height - 4, width: frame.size.width, height: height)
+         }
+        
+        
+       
     }
 
     func changeToErrorBorder(color:UIColor,height:CGFloat){
-           border.backgroundColor = color
-           border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-           border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
+        switch otpType {
+        case .Bordered,.Rounded:
+           self.layer.borderWidth = height
+           self.layer.borderColor = color.cgColor
+        default:
+              border.backgroundColor = color
+              border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+              border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
+        }
+         
        }
 
 
     func changeToInActiveBorder(color:UIColor,height:CGFloat){
-            border.backgroundColor = color
-            border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        switch otpType {
+        case .Bordered,.Rounded:
+           self.layer.borderWidth = height
+           self.layer.borderColor = color.cgColor
+        default:
+              border.backgroundColor = color
+              border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
             border.frame = CGRect(x: 0, y: frame.size.height - height, width: frame.size.width, height: height)
+        }
+         
+        
+           
         }
 }
 
