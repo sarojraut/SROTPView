@@ -8,13 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		33AEBC986970EB131F0F959D /* Pods_SROTPViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9536112A7888B7F4BAD3ABE1 /* Pods_SROTPViewTests.framework */; };
-		84834C852386B265002974E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84834C842386B265002974E0 /* AppDelegate.swift */; };
-		84834C892386B265002974E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84834C882386B265002974E0 /* ViewController.swift */; };
-		84834C8C2386B265002974E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84834C8A2386B265002974E0 /* Main.storyboard */; };
-		84834C8E2386B269002974E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84834C8D2386B269002974E0 /* Assets.xcassets */; };
-		84834C912386B269002974E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84834C8F2386B269002974E0 /* LaunchScreen.storyboard */; };
-		84834C9C2386B269002974E0 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84834C9B2386B269002974E0 /* ExampleTests.swift */; };
-		84834CA72386B269002974E0 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84834CA62386B269002974E0 /* ExampleUITests.swift */; };
 		84DAA52F238668D3006A12CF /* SROTPView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DAA525238668D3006A12CF /* SROTPView.framework */; };
 		84DAA534238668D3006A12CF /* SROTPViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DAA533238668D3006A12CF /* SROTPViewTests.swift */; };
 		84DAA536238668D3006A12CF /* SROTPView.h in Headers */ = {isa = PBXBuildFile; fileRef = 84DAA528238668D3006A12CF /* SROTPView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,18 +44,8 @@
 		1AF3733369B7E220B36759FE /* Pods_SROTPView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SROTPView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47466F2F2952752DEADA151E /* Pods-SROTPViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SROTPViewTests.debug.xcconfig"; path = "Target Support Files/Pods-SROTPViewTests/Pods-SROTPViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84834C822386B265002974E0 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		84834C842386B265002974E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84834C882386B265002974E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		84834C8B2386B265002974E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		84834C8D2386B269002974E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		84834C902386B269002974E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		84834C922386B269002974E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84834C972386B269002974E0 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84834C9B2386B269002974E0 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
-		84834C9D2386B269002974E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84834CA22386B269002974E0 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84834CA62386B269002974E0 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
-		84834CA82386B269002974E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84DAA525238668D3006A12CF /* SROTPView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SROTPView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DAA528238668D3006A12CF /* SROTPView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SROTPView.h; sourceTree = "<group>"; };
 		84DAA529238668D3006A12CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,39 +110,7 @@
 				47466F2F2952752DEADA151E /* Pods-SROTPViewTests.debug.xcconfig */,
 				E7804289DCCDEEB426C1E9C1 /* Pods-SROTPViewTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		84834C832386B265002974E0 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				84834C842386B265002974E0 /* AppDelegate.swift */,
-				84834C882386B265002974E0 /* ViewController.swift */,
-				84834C8A2386B265002974E0 /* Main.storyboard */,
-				84834C8D2386B269002974E0 /* Assets.xcassets */,
-				84834C8F2386B269002974E0 /* LaunchScreen.storyboard */,
-				84834C922386B269002974E0 /* Info.plist */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		84834C9A2386B269002974E0 /* ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				84834C9B2386B269002974E0 /* ExampleTests.swift */,
-				84834C9D2386B269002974E0 /* Info.plist */,
-			);
-			path = ExampleTests;
-			sourceTree = "<group>";
-		};
-		84834CA52386B269002974E0 /* ExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				84834CA62386B269002974E0 /* ExampleUITests.swift */,
-				84834CA82386B269002974E0 /* Info.plist */,
-			);
-			path = ExampleUITests;
 			sourceTree = "<group>";
 		};
 		84DAA51B238668D3006A12CF = {
@@ -167,9 +118,6 @@
 			children = (
 				84DAA527238668D3006A12CF /* SROTPView */,
 				84DAA532238668D3006A12CF /* SROTPViewTests */,
-				84834C832386B265002974E0 /* Example */,
-				84834C9A2386B269002974E0 /* ExampleTests */,
-				84834CA52386B269002974E0 /* ExampleUITests */,
 				84DAA526238668D3006A12CF /* Products */,
 				35177B9A577DAC00E3D91290 /* Pods */,
 				C8CD03FCB343E8E67ACD6B1C /* Frameworks */,
@@ -379,9 +327,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84834C912386B269002974E0 /* LaunchScreen.storyboard in Resources */,
-				84834C8E2386B269002974E0 /* Assets.xcassets in Resources */,
-				84834C8C2386B265002974E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,8 +412,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84834C892386B265002974E0 /* ViewController.swift in Sources */,
-				84834C852386B265002974E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,7 +419,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84834C9C2386B269002974E0 /* ExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84834CA72386B269002974E0 /* ExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,25 +465,6 @@
 			targetProxy = 84DAA530238668D3006A12CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		84834C8A2386B265002974E0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84834C8B2386B265002974E0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		84834C8F2386B269002974E0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84834C902386B269002974E0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		84834CA92386B269002974E0 /* Debug */ = {
@@ -584,7 +506,6 @@
 		84834CAB2386B269002974E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46FE8LX528;
@@ -605,7 +526,6 @@
 		84834CAC2386B269002974E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46FE8LX528;
@@ -626,7 +546,6 @@
 		84834CAD2386B269002974E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46FE8LX528;
 				INFOPLIST_FILE = ExampleUITests/Info.plist;
@@ -646,7 +565,6 @@
 		84834CAE2386B269002974E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46FE8LX528;
 				INFOPLIST_FILE = ExampleUITests/Info.plist;

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		135F000C979850886BFD02614BF888AD /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E82FD7E7E389E57D750E004A6D061 /* Pods-Example-dummy.m */; };
-		3AF96E7A3DF533DE101D9A2CDCDAEAAB /* SROTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4C8FDBB75DAB165FE3F415DC9406D /* SROTPTextField.swift */; };
+		3AF96E7A3DF533DE101D9A2CDCDAEAAB /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4C8FDBB75DAB165FE3F415DC9406D /* OTPTextField.swift */; };
 		44EE06548DABBC539571D8D8EDE871F9 /* Pods-ExampleUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5D9E81DFD7AB1A8EAD7DB5A716126 /* Pods-ExampleUITests-dummy.m */; };
 		48F5392CF16A562D5DFC41DC517F38AC /* SROTPView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A630396CB867E72ABFADE6AD16C01F6 /* SROTPView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		492F4B6EE1BD106E78E65EB4D1706B7D /* SROTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11988BE03068A3191D915958BAB4B55 /* SROTPView.swift */; };
@@ -52,7 +52,7 @@
 		13A80DC220171E3374521351CE2B8BBA /* SROTPView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SROTPView-prefix.pch"; sourceTree = "<group>"; };
 		16B2DD43DE2F55D2FEF48203B6B4DCC6 /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		19EBC764CC92EC4B840236CC6ADD23FE /* Pods-ExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21017B9E28A31313B5F1D09219CE1E44 /* SROTPView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SROTPView-Info.plist"; sourceTree = "<group>"; };
 		27ECCEB2417338F5FE4B4EA18F342C66 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
 		2BC1F1272E3B10EDB2991B0125234E65 /* Pods-ExampleUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ExampleUITests.modulemap"; sourceTree = "<group>"; };
@@ -65,26 +65,26 @@
 		4DF5D9E81DFD7AB1A8EAD7DB5A716126 /* Pods-ExampleUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExampleUITests-dummy.m"; sourceTree = "<group>"; };
 		59E4C3941C8E64C098C0AA2B62E40E56 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		622E82FD7E7E389E57D750E004A6D061 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
-		630CABE8F692FCDBFD1B122A2D0CE388 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ExampleTests.framework; path = "Pods-ExampleTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		630CABE8F692FCDBFD1B122A2D0CE388 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AD889863B628896A6B951CEE866D0A /* Pods-ExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExampleTests-dummy.m"; sourceTree = "<group>"; };
-		6BC4C8FDBB75DAB165FE3F415DC9406D /* SROTPTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SROTPTextField.swift; path = SROTPView/SROTPTextField.swift; sourceTree = "<group>"; };
+		6BC4C8FDBB75DAB165FE3F415DC9406D /* OTPTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OTPTextField.swift; path = SROTPView/OTPTextField.swift; sourceTree = "<group>"; };
 		793FAB1F21BCD28BED9229701490B00E /* SROTPView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SROTPView.xcconfig; sourceTree = "<group>"; };
 		8438EA4396BAB7470E7731C48172DAC0 /* Pods-ExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A1546981A31CDD5B8637C2661B7D9A7 /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
 		8D27A2D68006ED0357051638B70B22EC /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
 		8DC8E2610A87C463A50170BFC74FBE17 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9644F9F293197A05CA13DDF482ED12A9 /* SROTPView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SROTPView-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B11988BE03068A3191D915958BAB4B55 /* SROTPView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SROTPView.swift; path = SROTPView/SROTPView.swift; sourceTree = "<group>"; };
 		B59D3CD58180EEB3861C0D8488D7F8BB /* Pods-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8DCA6F835711B664410B62B51866C95 /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		C232398D4E3A40F2337F8A40D7F8D751 /* Pods_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ExampleUITests.framework; path = "Pods-ExampleUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C232398D4E3A40F2337F8A40D7F8D751 /* Pods_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDE016B2044DE43E15357744E3479DE /* Pods-ExampleUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleUITests-Info.plist"; sourceTree = "<group>"; };
 		D5D84486E2AACFDC2C78012690004889 /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
 		DAC54E0107119A3EC99619975390F069 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		EB057BB6C2556C0124844646041C540B /* Pods-ExampleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ExampleTests.modulemap"; sourceTree = "<group>"; };
 		F0ACCC562D1D8AE341D8300533302F8B /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FB198F430A7537092DFCAAFEFAB2AC76 /* SROTPView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SROTPView.framework; path = SROTPView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB198F430A7537092DFCAAFEFAB2AC76 /* SROTPView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SROTPView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8BB1D52AF6A656D009F03FA9095FD4 /* Pods-ExampleTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleTests-Info.plist"; sourceTree = "<group>"; };
 		FE2FF0064855CEE88F2D71875FF1CAFE /* Pods-ExampleTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ExampleTests-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,11 +165,10 @@
 		B79559823077DD0CA8504FC049C794C0 /* SROTPView */ = {
 			isa = PBXGroup;
 			children = (
-				6BC4C8FDBB75DAB165FE3F415DC9406D /* SROTPTextField.swift */,
+				6BC4C8FDBB75DAB165FE3F415DC9406D /* OTPTextField.swift */,
 				B11988BE03068A3191D915958BAB4B55 /* SROTPView.swift */,
 				DA8248924537E7AAFE6BCBB06F13AB6C /* Support Files */,
 			);
-			name = SROTPView;
 			path = SROTPView;
 			sourceTree = "<group>";
 		};
@@ -457,7 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AF96E7A3DF533DE101D9A2CDCDAEAAB /* SROTPTextField.swift in Sources */,
+				3AF96E7A3DF533DE101D9A2CDCDAEAAB /* OTPTextField.swift in Sources */,
 				AA789700142C1A72C1A326016F221953 /* SROTPView-dummy.m in Sources */,
 				492F4B6EE1BD106E78E65EB4D1706B7D /* SROTPView.swift in Sources */,
 			);
