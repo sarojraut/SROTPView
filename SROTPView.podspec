@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SROTPView'
-  s.version          = '0.1.3'
+  s.version          = '1.1.0'
   s.summary          = 'OTP view is designed to be used as alternative to default textfield and it is beautifully designed'
  
   s.description      = <<-DESC

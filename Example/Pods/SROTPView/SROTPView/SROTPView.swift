@@ -6,279 +6,292 @@
 //  Copyright © 2019 admin. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-
-class SROTPView: UIView {
+public class SROTPView: UIView {
     
-    let otpStackView = OTPStackView()
+    enum KeyboardType: Int {
+        case numeric
+        case alphabet
+        case alphaNumeric
+    }
+    
+    public var otpTextFieldsCount: Int = 4
+    
+    var otpTextFieldInputType: KeyboardType = .numeric
+    
+    public var otpTextFieldFont: UIFont = UIFont.systemFont(ofSize: 20)
+    
+    public var otpTextFieldEntrySecureType: Bool = false
+    
+    public var otpFilledEntryDisplay: Bool = false
+    
+    public var shouldRequireCursor: Bool = true
+    
+    public var cursorColor: UIColor = UIColor.blue
+    
+    public var otpTextFieldSize: CGFloat = 26
+    
+    public var otpTextFieldSeparatorSpace: CGFloat = 37
+    
+    public var otpTextFieldBorderWidth: CGFloat = 2
+    
+    public var otpTextFieldActiveBorderWidth: CGFloat = 4
+    
+    public var otpTextFieldDefaultBackgroundColor: UIColor = UIColor.clear
+    
+    public var otpTextFieldEnteredBackgroundColor: UIColor = UIColor.clear
+    
+    public var otpTextFieldDefaultBorderColor: UIColor = UIColor.gray
+    
+    public var otpTextFieldActiveBorderColor: UIColor = UIColor.black
+    
+    public var otpTextFieldErrorBorderColor: UIColor?
+    
+    public var otpTextFieldFontColor: UIColor?
+    
+    var aciveTextField:SROTPTextField?
+    
+    fileprivate var secureEntryData = [String]()
+    
+    public var hasEnteredAllOTP = false
+    
     public var otpEnteredString :((String)->())?
-    var otpTextFieldsCount = 6{
-        didSet{
-            otpStackView.otpTextFieldsCount = self.otpTextFieldsCount
-        }
-    }
-    var secureEntry = false
     
-    
-    func setUpUI(){
-        otpStackView.secureEntry = self.secureEntry
-        self.addSubview(otpStackView)
-        otpStackView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        otpStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        otpStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        otpStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        otpStackView.otpEnteredString = {value in
-            (self.otpEnteredString?(value))
-        }
+    override public func awakeFromNib() {
+        super.awakeFromNib()
     }
     
-    func setUpOtpView(){
-        setUpUI()
-        otpStackView.addOTPFields()
+    //MARK:Initialize UI
+    public func initializeUI() {
+        layer.masksToBounds = true
+        layoutIfNeeded()
+        if (CGFloat(otpTextFieldsCount - 1)*otpTextFieldSeparatorSpace + CGFloat(otpTextFieldsCount)*otpTextFieldSize) > self.bounds.size.width{
+            self.otpTextFieldSeparatorSpace = (self.bounds.size.width - CGFloat(otpTextFieldsCount)*otpTextFieldSize) / (CGFloat(otpTextFieldsCount - 1))
+        }
+        initializeotpTextFields()
         let topView = UIView()
         topView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         topView.backgroundColor = UIColor.clear
-        topView.isUserInteractionEnabled = true
         self.addSubview(topView)
+        aciveTextField = (viewWithTag(1) as? SROTPTextField)
+        aciveTextField?.becomeFirstResponder()
+        self.aciveTextField?.shapeLayer.fillColor = otpTextFieldDefaultBorderColor.cgColor
+        self.aciveTextField?.shapeLayer.strokeColor = otpTextFieldDefaultBorderColor.cgColor
+        self.aciveTextField?.shapeLayer.lineWidth = otpTextFieldBorderWidth
+        self.aciveTextField = viewWithTag(1) as? SROTPTextField
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(getResponder))
         tapGesture.numberOfTapsRequired = 1
+        topView.isUserInteractionEnabled = true
         topView.addGestureRecognizer(tapGesture)
-        
-    }
-    
-    func initializeUI(){
-        otpStackView.refreshView()
     }
     
     //MARK:Get Touch event when touch on view
     @objc func getResponder(){
-        otpStackView.assignResponder()
-    }
-    
-    func set(warning:Bool){
-        self.otpStackView.transform = CGAffineTransform(translationX: 20, y: 0)
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 10, options: .curveLinear, animations: {
-            self.otpStackView.transform = CGAffineTransform.identity
-            self.otpStackView.setWarningColor(isWarningColor: true)
-        }) { _ in
-            self.otpStackView.transform = CGAffineTransform.identity
-        }
-        
-    }
-    
-}
-
-
-class OTPStackView: UIStackView {
-    //Customise the OTPField here
-    var otpTextFieldsCount = 6{
-        didSet{
-            self.addOTPFields()
-        }
-    }
-    var textFieldsCollection: [OTPTextField] = []
-    var showsWarningColor = false
-    var activeTextField:OTPTextField?
-    var hasEnteredAllOTP = false
-    var space: CGFloat = 28
-    var size: CGFloat = 50
-    var otpTextFieldFontColor = UIColor.white
-    var otpTextFieldErrorColor = UIColor.red
-    
-    var activeHeight = 2
-    var inactiveHeight = 2
-    var secureEntry = false
-    //Colors
-    let otpTextFieldDefaultBorderColor = UIColor.white
-    let textBackgroundColor = UIColor.clear
-    let otpTextFieldActiveBorderColor = UIColor.white
-    public var otpEnteredString :((String)->())?
-    
-    required init(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupStackView()
-    }
-    
-    //Customisation and setting stackView
-    func setupStackView() {
-        self.backgroundColor = .clear
-        self.isUserInteractionEnabled = true
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.contentMode = .center
-        self.distribution = .equalSpacing
-        self.spacing = space
-        if (CGFloat(otpTextFieldsCount - 1)*space + CGFloat(otpTextFieldsCount)*size) > self.bounds.size.width{
-            self.spacing = (self.bounds.size.width - CGFloat(otpTextFieldsCount)*size) / (CGFloat(otpTextFieldsCount - 1))
-        }
-        
-    }
-    
-    //Adding each OTPfield to stack view
-    func addOTPFields() {
-        self.textFieldsCollection = []
-        for each in self.subviews{
-            each.removeFromSuperview()
-        }
-        for index in 0..<otpTextFieldsCount{
-            let field = OTPTextField()
-            field.tag = index
-            setupTextField(field)
-            textFieldsCollection.append(field)
-            //Adding a marker to previous field
-            index != 0 ? (field.previousTextField = textFieldsCollection[index-1]) : (field.previousTextField = nil)
-            //Adding a marker to next field for the field at index-1
-            index != 0 ? (textFieldsCollection[index-1].nextTextField = field) : ()
-        }
-        
-        activeTextField = textFieldsCollection[0]
-    }
-    
-    func assignResponder(){
-        DispatchQueue.main.async {
-            self.activeTextField?.becomeFirstResponder()
-        }
-    }
-    
-    //Customisation and setting OTPTextFields
-    func setupTextField(_ textField: OTPTextField){
-        textField.delegate = self
-        textField.textContentType = .none
-        //Adding constraints wrt to its parent i.e OTPStackView
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        self.addArrangedSubview(textField)
-        textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        textField.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        textField.widthAnchor.constraint(equalToConstant: size).isActive = true
-        if secureEntry{
-            textField.isSecureTextEntry = true
+        if hasEnteredAllOTP && aciveTextField?.tag != self.otpTextFieldsCount{
+            (viewWithTag(self.otpTextFieldsCount) as? SROTPTextField)?.becomeFirstResponder()
         }else{
-            textField.isSecureTextEntry = false
+            aciveTextField?.becomeFirstResponder()
         }
-        textField.backgroundColor = textBackgroundColor
-        textField.textAlignment = .center
-        textField.adjustsFontSizeToFitWidth = false
-        textField.font = UIFont.systemFont(ofSize: 24)
-        textField.textColor = otpTextFieldFontColor
-        textField.keyboardType = .numberPad
-        textField.addborder(color: otpTextFieldDefaultBorderColor,height: CGFloat(inactiveHeight))
+        
     }
     
-    func refreshView(){
-        for fields in textFieldsCollection{
-            fields.text = ""
+    //MARK:Initialuze textFields
+    
+    fileprivate func initializeotpTextFields() {
+        secureEntryData.removeAll()
+        
+        for index in stride(from: 0, to: otpTextFieldsCount, by: 1) {
+            let oldotpTextField = viewWithTag(index + 1) as? SROTPTextField
+            oldotpTextField?.removeFromSuperview()
+            
+            let otpTextField = getotpTextField(forIndex: index)
+            
+            addSubview(otpTextField)
+            
+            secureEntryData.append("")
+        }
+    }
+    
+    //MARK:Get textFields
+    
+    fileprivate func getotpTextField(forIndex index: Int) -> SROTPTextField {
+        let hasOddNumberOfFields = (otpTextFieldsCount % 2 == 1)
+        var fieldFrame = CGRect(x: 0, y: 0, width: otpTextFieldSize, height: otpTextFieldSize)
+        if hasOddNumberOfFields {
+            fieldFrame.origin.x = bounds.size.width / 2 - (CGFloat(otpTextFieldsCount / 2 - index) * (otpTextFieldSize + otpTextFieldSeparatorSpace) + otpTextFieldSize / 2)
+        }
+        else {
+            fieldFrame.origin.x = bounds.size.width / 2 - (CGFloat(otpTextFieldsCount / 2 - index) * otpTextFieldSize + CGFloat(otpTextFieldsCount / 2 - index - 1) * otpTextFieldSeparatorSpace + otpTextFieldSeparatorSpace / 2)
+        }
+        fieldFrame.origin.y = (bounds.size.height - otpTextFieldSize) / 2
+        let otpTextField = SROTPTextField(frame: fieldFrame)
+        otpTextField.delegate = self
+        otpTextField.tag = index + 1
+        otpTextField.font = otpTextFieldFont
+        otpTextField.textColor = otpTextFieldFontColor
+        switch otpTextFieldInputType {
+        case .numeric:
+            otpTextField.keyboardType = .numberPad
+        case .alphabet:
+            otpTextField.keyboardType = .alphabet
+        case .alphaNumeric:
+            otpTextField.keyboardType = .namePhonePad
+        }
+        otpTextField.borderColorOfTextField = otpTextFieldDefaultBorderColor
+        otpTextField.borderWidthOfTextField = otpTextFieldBorderWidth
+        if shouldRequireCursor {
+            otpTextField.tintColor = cursorColor
+        }
+        else {
+            otpTextField.tintColor = UIColor.clear
+        }
+        otpTextField.backgroundColor = otpTextFieldDefaultBackgroundColor
+        otpTextField.initalizeUI()
+        
+        return otpTextField
+    }
+    
+    //MARK:Calculate enteredString
+    
+    fileprivate func calculateEnteredOTPSTring(isDeleted: Bool) {
+        if isDeleted {
             hasEnteredAllOTP = false
-            (otpEnteredString?(""))
-        }
-        DispatchQueue.main.async {
-            self.textFieldsCollection[0].becomeFirstResponder()
-        }
-        activeTextField = textFieldsCollection[0]
-    }
-    
-    //checks if all the OTPfields are filled
-    func checkForValidity(){
-        for fields in textFieldsCollection{
-            if (fields.text == ""){
-                hasEnteredAllOTP = false
-                (otpEnteredString?(self.getOTP()))
-                return
+            for index in stride(from: 0, to: otpTextFieldsCount, by: 1) {
+                var otpTextField = viewWithTag(index + 1) as? SROTPTextField
+                
+                if otpTextField == nil {
+                    otpTextField = getotpTextField(forIndex: index)
+                }
+                
+                let fieldBackgroundColor = (otpTextField?.text ?? "").isEmpty ? otpTextFieldDefaultBackgroundColor : otpTextFieldEnteredBackgroundColor
+                let fieldBorderColor =  otpTextFieldDefaultBorderColor
+                otpTextField?.shapeLayer.fillColor = fieldBackgroundColor.cgColor
+                otpTextField?.shapeLayer.strokeColor = fieldBorderColor.cgColor
+                otpTextField?.shapeLayer.lineWidth = otpTextFieldBorderWidth
+            }
+        }else {
+            var enteredOTPString = ""
+            
+            for index in stride(from: 0, to: secureEntryData.count, by: 1) {
+                if !secureEntryData[index].isEmpty {
+                    enteredOTPString.append(secureEntryData[index])
+                }
+            }
+            
+            if enteredOTPString.count == otpTextFieldsCount {
+                hasEnteredAllOTP = (enteredOTPString.count == otpTextFieldsCount)
+                otpEnteredString?(enteredOTPString)
+                let isValid =  (enteredOTPString.count == otpTextFieldsCount)
+                
+                for index in stride(from: 0, to: otpTextFieldsCount, by: 1) {
+                    var otpTextField = viewWithTag(index + 1) as? SROTPTextField
+                    
+                    if otpTextField == nil {
+                        otpTextField = getotpTextField(forIndex: index)
+                    }
+                    
+                    if !isValid {
+                        otpTextField?.layer.borderColor = otpTextFieldDefaultBorderColor.cgColor
+                    }
+                    else {
+                        otpTextField?.layer.borderColor = otpTextFieldDefaultBorderColor.cgColor
+                    }
+                }
             }
         }
-        hasEnteredAllOTP = true
-        (otpEnteredString?(self.getOTP()))
     }
-    
-    //gives the OTP text
-    func getOTP() -> String {
-        var OTP = ""
-        for textField in textFieldsCollection{
-            OTP += textField.text ?? ""
-        }
-        return OTP
-    }
-    
-    //set isWarningColor true for using it as a warning color
-    func setWarningColor(isWarningColor: Bool = false){
-        if isWarningColor{
-            for textField in textFieldsCollection{
-                textField.changeToErrorBorder(color: otpTextFieldErrorColor, height: 2)
-            }
-        }else{
-            for textField in textFieldsCollection{
-                textField.changeToInActiveBorder(color: otpTextFieldDefaultBorderColor,height:CGFloat(inactiveHeight))
-            }
-        }
-        showsWarningColor = isWarningColor
-    }
-    
 }
 
-//TextField related operations
-extension OTPStackView: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if showsWarningColor {
-            setWarningColor(isWarningColor: false)
-            showsWarningColor = false
-        }
-        if let field = textField as? OTPTextField{
-            field.changeToActiveBorder(color: otpTextFieldActiveBorderColor,height: CGFloat(activeHeight))
-        }
+extension SROTPView: UITextFieldDelegate {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        (textField as? SROTPTextField)?.shapeLayer.fillColor = otpTextFieldActiveBorderColor.cgColor
+        (textField as? SROTPTextField)?.shapeLayer.strokeColor = otpTextFieldActiveBorderColor.cgColor
+        (textField as? SROTPTextField)?.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
+        self.aciveTextField = textField as? SROTPTextField
+        
+        return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let field = textField as? OTPTextField{
-            field.changeToInActiveBorder(color: otpTextFieldDefaultBorderColor,height:CGFloat(inactiveHeight))
-        }
-    }
-    
-    //switches between OTPTextfields
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range:NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let replacedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
-        guard let textField = textField as? OTPTextField else { return true }
-       
-        if !replacedText.isEmpty &&  replacedText.rangeOfCharacter(from: .decimalDigits) == nil {
+        
+        if !replacedText.isEmpty && otpTextFieldInputType == .alphabet && replacedText.rangeOfCharacter(from: .letters) == nil {
+            (textField as? SROTPTextField)?.shapeLayer.fillColor = otpTextFieldActiveBorderColor.cgColor
+            (textField as? SROTPTextField)?.shapeLayer.strokeColor = otpTextFieldActiveBorderColor.cgColor
+            (textField as? SROTPTextField)?.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
             return false
         }
         
-        if (range.length == 0){
-            if  replacedText == ""{
-                activeTextField = textFieldsCollection[0]
-                activeTextField?.becomeFirstResponder()
-                return false
-            }
-            if textField.nextTextField == nil {
-                activeTextField = textField
-                DispatchQueue.main.async {
-                    textField.resignFirstResponder()
+        if replacedText.count >= 1 {
+            secureEntryData[textField.tag - 1] = string
+            
+            if otpFilledEntryDisplay {
+                textField.text = " "
+            }else {
+                if otpTextFieldEntrySecureType {
+                    textField.text = "*"
                 }
-            }else{
-                textField.nextTextField?.becomeFirstResponder()
-                activeTextField = textField.nextTextField
+                else {
+                    textField.text = string
+                }
             }
-            textField.text? = string
-            checkForValidity()
-            return false
-                       
-        }else if (range.length == 1) {
-                    textField.previousTextField?.becomeFirstResponder()
-                    if textField.previousTextField != nil{
-                        activeTextField = textField.previousTextField
+            
+            
+            (textField as! SROTPTextField).shapeLayer.fillColor = otpTextFieldDefaultBorderColor.cgColor
+            (textField as! SROTPTextField).shapeLayer.strokeColor = otpTextFieldDefaultBorderColor.cgColor
+            (textField as! SROTPTextField).shapeLayer.lineWidth = otpTextFieldBorderWidth
+            
+            let nextotpTextField = viewWithTag(textField.tag + 1)
+            
+            if let nextotpTextField = nextotpTextField as? SROTPTextField{
+                nextotpTextField.becomeFirstResponder()
+                self.aciveTextField = nextotpTextField
+                nextotpTextField.shapeLayer.fillColor = otpTextFieldActiveBorderColor.cgColor
+                nextotpTextField.shapeLayer.strokeColor = otpTextFieldActiveBorderColor.cgColor
+                nextotpTextField.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
+            }else {
+                textField.resignFirstResponder()
+                textField.backgroundColor = otpTextFieldEnteredBackgroundColor
+                textField.layer.borderColor = otpTextFieldDefaultBorderColor.cgColor
+            }
+            
+            calculateEnteredOTPSTring(isDeleted: false)
+        }else {
+            let currentText = textField.text ?? ""
+            
+            if textField.tag > 1 && currentText.isEmpty {
+                if let prevotpTextField = viewWithTag(textField.tag - 1) as? SROTPTextField {
+                    deleteText(in: prevotpTextField)
+                    prevotpTextField.shapeLayer.fillColor = otpTextFieldActiveBorderColor.cgColor
+                    prevotpTextField.shapeLayer.strokeColor = otpTextFieldActiveBorderColor.cgColor
+                    prevotpTextField.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
+                }
+            } else {
+                deleteText(in: textField)
+                if textField.tag > 1 {
+                    if let prevotpTextField = viewWithTag(textField.tag - 1) as? SROTPTextField {
+                        prevotpTextField.becomeFirstResponder()
+                        self.aciveTextField = prevotpTextField
+                        prevotpTextField.shapeLayer.fillColor = otpTextFieldActiveBorderColor.cgColor
+                        prevotpTextField.shapeLayer.strokeColor = otpTextFieldActiveBorderColor.cgColor
+                        prevotpTextField.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
                     }
-                    textField.text? = ""
-                    checkForValidity()
-                    return false
+                }else{
+                    (textField as? SROTPTextField)?.shapeLayer.fillColor = otpTextFieldActiveBorderColor.cgColor
+                    (textField as? SROTPTextField)?.shapeLayer.strokeColor = otpTextFieldActiveBorderColor.cgColor
+                    (textField as? SROTPTextField)?.shapeLayer.lineWidth = otpTextFieldActiveBorderWidth
+                }
+            }
         }
+        
         return false
     }
     
+    private func deleteText(in textField: UITextField) {
+        secureEntryData[textField.tag - 1] = ""
+        textField.text = ""
+        textField.becomeFirstResponder()
+        calculateEnteredOTPSTring(isDeleted: true)
+    }
 }
-
-
-
