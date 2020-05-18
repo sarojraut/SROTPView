@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1A81407868ADA8A51C2B54111E4852C5 /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E82FD7E7E389E57D750E004A6D061 /* Pods-Example-dummy.m */; };
-		1D8FCA001A666B2DCFE6B96D4E379059 /* SROTPView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9644F9F293197A05CA13DDF482ED12A9 /* SROTPView-dummy.m */; };
+		1D8FCA001A666B2DCFE6B96D4E379059 /* SROTPView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDC05AF80AF5704AABAE3DE708F3D00 /* SROTPView-dummy.m */; };
 		268F57B8FE78A4A2A46B6577C35DCCC4 /* Pods-ExampleUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB6ADFFE0EF15A4F7D6ED76E5EA0158 /* Pods-ExampleUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		283B547B545C87D6FE2CF86C39650186 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		5878E8F25518D1C2162A4BC615D8ABBE /* SROTPView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A630396CB867E72ABFADE6AD16C01F6 /* SROTPView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5878E8F25518D1C2162A4BC615D8ABBE /* SROTPView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 042B05AA6A62356637805BBDAE3396ED /* SROTPView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CC2A02CBC74BE55B430797AFBDE6A08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		614AE7D193DC5EF223E6E7430C5057DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		7ABA2F28893EE56D4BFDA1E9D9B2D8B7 /* Pods-ExampleTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE2FF0064855CEE88F2D71875FF1CAFE /* Pods-ExampleTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,8 +19,8 @@
 		84D5C89C59A2CDCA7B15790127A6F014 /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D84486E2AACFDC2C78012690004889 /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9BE10B8EB80CE8192A507739E1EF26FA /* Pods-ExampleUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5D9E81DFD7AB1A8EAD7DB5A716126 /* Pods-ExampleUITests-dummy.m */; };
 		D40B0CD7725BE41DFF7CE3356ED84FB9 /* Pods-ExampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AD889863B628896A6B951CEE866D0A /* Pods-ExampleTests-dummy.m */; };
-		D8548FCEA719153D38835739B031750F /* SROTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11988BE03068A3191D915958BAB4B55 /* SROTPView.swift */; };
-		E5C6F9DDC9C1B6E122D7380BF818590B /* SROTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC4C8FDBB75DAB165FE3F415DC9406D /* SROTPTextField.swift */; };
+		D8548FCEA719153D38835739B031750F /* SROTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B1C4D9BD8CFBD134A40AF5485289F1 /* SROTPView.swift */; };
+		E5C6F9DDC9C1B6E122D7380BF818590B /* SROTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6615D287BF80C7677E6A131E25571A8C /* SROTPTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,37 +48,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042B05AA6A62356637805BBDAE3396ED /* SROTPView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SROTPView-umbrella.h"; sourceTree = "<group>"; };
 		0CB6ADFFE0EF15A4F7D6ED76E5EA0158 /* Pods-ExampleUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ExampleUITests-umbrella.h"; sourceTree = "<group>"; };
-		13A80DC220171E3374521351CE2B8BBA /* SROTPView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SROTPView-prefix.pch"; sourceTree = "<group>"; };
 		16B2DD43DE2F55D2FEF48203B6B4DCC6 /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		19EBC764CC92EC4B840236CC6ADD23FE /* Pods-ExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21017B9E28A31313B5F1D09219CE1E44 /* SROTPView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SROTPView-Info.plist"; sourceTree = "<group>"; };
 		27ECCEB2417338F5FE4B4EA18F342C66 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
 		2BC1F1272E3B10EDB2991B0125234E65 /* Pods-ExampleUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ExampleUITests.modulemap"; sourceTree = "<group>"; };
 		2ECE1D96D82FD7AC5A4CE6793DCD381F /* Pods-ExampleUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		30B1C4D9BD8CFBD134A40AF5485289F1 /* SROTPView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SROTPView.swift; path = SROTPView/SROTPView.swift; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		34F8E21B10AA7C0BB0A241693DF40840 /* Pods-ExampleUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ExampleUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		41A51C2124920DDDD2608321F177F8E1 /* SROTPView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SROTPView.modulemap; sourceTree = "<group>"; };
+		3C1F64109BF286E833E04F75A67002C6 /* SROTPView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SROTPView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		475FAE4C31A221C77CE6FEDDF73E1D0B /* Pods-ExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		4A630396CB867E72ABFADE6AD16C01F6 /* SROTPView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SROTPView-umbrella.h"; sourceTree = "<group>"; };
 		4DF5D9E81DFD7AB1A8EAD7DB5A716126 /* Pods-ExampleUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExampleUITests-dummy.m"; sourceTree = "<group>"; };
 		59E4C3941C8E64C098C0AA2B62E40E56 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		5D815E00278104146FD7A86497E19986 /* SROTPView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SROTPView-Info.plist"; sourceTree = "<group>"; };
 		622E82FD7E7E389E57D750E004A6D061 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
 		630CABE8F692FCDBFD1B122A2D0CE388 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ExampleTests.framework; path = "Pods-ExampleTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		631DCC0A78DD313140C8FADBCE2A26E3 /* SROTPView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SROTPView-prefix.pch"; sourceTree = "<group>"; };
+		6615D287BF80C7677E6A131E25571A8C /* SROTPTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SROTPTextField.swift; path = SROTPView/SROTPTextField.swift; sourceTree = "<group>"; };
 		66AD889863B628896A6B951CEE866D0A /* Pods-ExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExampleTests-dummy.m"; sourceTree = "<group>"; };
-		6BC4C8FDBB75DAB165FE3F415DC9406D /* SROTPTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SROTPTextField.swift; path = SROTPView/SROTPTextField.swift; sourceTree = "<group>"; };
-		793FAB1F21BCD28BED9229701490B00E /* SROTPView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SROTPView.xcconfig; sourceTree = "<group>"; };
 		8438EA4396BAB7470E7731C48172DAC0 /* Pods-ExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A1546981A31CDD5B8637C2661B7D9A7 /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
 		8D27A2D68006ED0357051638B70B22EC /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
 		8DC8E2610A87C463A50170BFC74FBE17 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9644F9F293197A05CA13DDF482ED12A9 /* SROTPView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SROTPView-dummy.m"; sourceTree = "<group>"; };
+		9CDC05AF80AF5704AABAE3DE708F3D00 /* SROTPView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SROTPView-dummy.m"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B11988BE03068A3191D915958BAB4B55 /* SROTPView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SROTPView.swift; path = SROTPView/SROTPView.swift; sourceTree = "<group>"; };
 		B59D3CD58180EEB3861C0D8488D7F8BB /* Pods-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8DCA6F835711B664410B62B51866C95 /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		BEB2AADB0DA7DE7D74342B915C0BC4FC /* SROTPView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SROTPView.xcconfig; sourceTree = "<group>"; };
 		C232398D4E3A40F2337F8A40D7F8D751 /* Pods_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ExampleUITests.framework; path = "Pods-ExampleUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71A739D9C668A0EFA14B565BDA94E8F /* SROTPView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SROTPView.modulemap; sourceTree = "<group>"; };
 		CCDE016B2044DE43E15357744E3479DE /* Pods-ExampleUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExampleUITests-Info.plist"; sourceTree = "<group>"; };
 		D5D84486E2AACFDC2C78012690004889 /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
 		DAC54E0107119A3EC99619975390F069 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +126,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30461998A38218CC83876B37BEDA6652 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				578407BA2497C57BE6E96AD09AAE572F /* SROTPView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		578407BA2497C57BE6E96AD09AAE572F /* SROTPView */ = {
+			isa = PBXGroup;
+			children = (
+				6615D287BF80C7677E6A131E25571A8C /* SROTPTextField.swift */,
+				30B1C4D9BD8CFBD134A40AF5485289F1 /* SROTPView.swift */,
+				8B5040A42148067F29BCBE6FEB0199A3 /* Pod */,
+				FB22F49C9EA34A7AB81CDC47D9282470 /* Support Files */,
+			);
+			name = SROTPView;
+			path = /Users/sarojraut/SROTPView/Example;
+			sourceTree = "<absolute>";
+		};
 		7885EEC3933B8DB3C697DDE68954F7D9 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +167,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8B5040A42148067F29BCBE6FEB0199A3 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3C1F64109BF286E833E04F75A67002C6 /* SROTPView.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		9A9342B0F7D34E7B84F3018ACC50E0B2 /* Pods-ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,17 +189,6 @@
 			);
 			name = "Pods-ExampleTests";
 			path = "Target Support Files/Pods-ExampleTests";
-			sourceTree = "<group>";
-		};
-		B79559823077DD0CA8504FC049C794C0 /* SROTPView */ = {
-			isa = PBXGroup;
-			children = (
-				6BC4C8FDBB75DAB165FE3F415DC9406D /* SROTPTextField.swift */,
-				B11988BE03068A3191D915958BAB4B55 /* SROTPView.swift */,
-				DA8248924537E7AAFE6BCBB06F13AB6C /* Support Files */,
-			);
-			name = SROTPView;
-			path = SROTPView;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -201,8 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				30461998A38218CC83876B37BEDA6652 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				DAA201C50CF95D2E6287F77C4B798D1E /* Pods */,
 				874A6BD67196920E01F8EC8D69C89C53 /* Products */,
 				7885EEC3933B8DB3C697DDE68954F7D9 /* Targets Support Files */,
 			);
@@ -214,28 +232,6 @@
 				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DA8248924537E7AAFE6BCBB06F13AB6C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				41A51C2124920DDDD2608321F177F8E1 /* SROTPView.modulemap */,
-				793FAB1F21BCD28BED9229701490B00E /* SROTPView.xcconfig */,
-				9644F9F293197A05CA13DDF482ED12A9 /* SROTPView-dummy.m */,
-				21017B9E28A31313B5F1D09219CE1E44 /* SROTPView-Info.plist */,
-				13A80DC220171E3374521351CE2B8BBA /* SROTPView-prefix.pch */,
-				4A630396CB867E72ABFADE6AD16C01F6 /* SROTPView-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SROTPView";
-			sourceTree = "<group>";
-		};
-		DAA201C50CF95D2E6287F77C4B798D1E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B79559823077DD0CA8504FC049C794C0 /* SROTPView */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		E9BD05E78F6B56475AF0C3500C3336D0 /* Pods-Example */ = {
@@ -253,6 +249,20 @@
 			);
 			name = "Pods-Example";
 			path = "Target Support Files/Pods-Example";
+			sourceTree = "<group>";
+		};
+		FB22F49C9EA34A7AB81CDC47D9282470 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C71A739D9C668A0EFA14B565BDA94E8F /* SROTPView.modulemap */,
+				BEB2AADB0DA7DE7D74342B915C0BC4FC /* SROTPView.xcconfig */,
+				9CDC05AF80AF5704AABAE3DE708F3D00 /* SROTPView-dummy.m */,
+				5D815E00278104146FD7A86497E19986 /* SROTPView-Info.plist */,
+				631DCC0A78DD313140C8FADBCE2A26E3 /* SROTPView-prefix.pch */,
+				042B05AA6A62356637805BBDAE3396ED /* SROTPView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/SROTPView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,7 +641,7 @@
 		};
 		450F0A6BEA6287E43B72AC838B4C21BA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 793FAB1F21BCD28BED9229701490B00E /* SROTPView.xcconfig */;
+			baseConfigurationReference = BEB2AADB0DA7DE7D74342B915C0BC4FC /* SROTPView.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -782,7 +792,7 @@
 		};
 		8289784F614AB4FE95AB616688A6F410 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 793FAB1F21BCD28BED9229701490B00E /* SROTPView.xcconfig */;
+			baseConfigurationReference = BEB2AADB0DA7DE7D74342B915C0BC4FC /* SROTPView.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";

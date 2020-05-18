@@ -5,7 +5,6 @@
 //  Created by admin on 11/20/19.
 //  Copyright © 2019 admin. All rights reserved.
 //
-
 import Foundation
 import UIKit
 
@@ -15,90 +14,10 @@ public enum SROTPType {
     case UnderLined
 }
 
-public class SROTPView: UIView {
-    
-    public var otpType : SROTPType = .Rounded
-    public var showsWarningColor = false
-    public var hasEnteredAllOTP = false
-    public var space: CGFloat = 28
-    public var size: CGFloat = 50
-    public var otpTextFieldFontColor = UIColor.white
-    public var otpTextFieldErrorColor = UIColor.red
-    
-    public var activeHeight = 4
-    public var inactiveHeight = 2
-    public var secureEntry = false
-    //Colors
-    public var otpTextFieldDefaultBorderColor = UIColor.white
-    public var textBackgroundColor = UIColor.clear
-    public var otpTextFieldActiveBorderColor = UIColor.white
-    public var otpEnteredString :((String)->())?
-    
-    var otpStackView = OTPStackView()
-    public var otpTextFieldsCount = 6{
-        didSet{
-            otpStackView.otpTextFieldsCount = self.otpTextFieldsCount
-        }
-    }
+public class SROTPView: UIView,UITextFieldDelegate {
     
     
-  public  func setUpUI(){
-        //otpStackView = OTPStackView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.size))
-        otpStackView.otpType = self.otpType
-        otpStackView.activeHeight = self.activeHeight
-        otpStackView.inactiveHeight = self.inactiveHeight
-        otpStackView.otpTextFieldActiveBorderColor = self.otpTextFieldActiveBorderColor
-        otpStackView.otpTextFieldDefaultBorderColor = self.otpTextFieldDefaultBorderColor
-        otpStackView.secureEntry = self.secureEntry
-        self.addSubview(otpStackView)
-        otpStackView.heightAnchor.constraint(equalToConstant: size).isActive = true
-        otpStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        otpStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        otpStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        otpStackView.otpEnteredString = {value in
-            (self.otpEnteredString?(value))
-        }
-    }
-    
-   public func setUpOtpView(){
-        setUpUI()
-        otpStackView.setupStackView()
-        otpStackView.addOTPFields()
-        let topView = UIView()
-        topView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-        topView.backgroundColor = UIColor.clear
-        topView.isUserInteractionEnabled = true
-        self.addSubview(topView)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(getResponder))
-        tapGesture.numberOfTapsRequired = 1
-        topView.addGestureRecognizer(tapGesture)
-        
-    }
-    
-   public func initializeUI(){
-        otpStackView.refreshView()
-    }
-    
-    //MARK:Get Touch event when touch on view
-    @objc func getResponder(){
-        otpStackView.assignResponder()
-    }
-    
-   public func set(warning:Bool){
-        self.otpStackView.transform = CGAffineTransform(translationX: 20, y: 0)
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 10, options: .curveLinear, animations: {
-            self.otpStackView.transform = CGAffineTransform.identity
-            self.otpStackView.setWarningColor(isWarningColor: true)
-        }) { _ in
-            self.otpStackView.transform = CGAffineTransform.identity
-        }
-        
-    }
-    
-}
-
-
- class OTPStackView: UIStackView {
+    var otpStackView = UIStackView()
     //Customise the OTPField here
     public var otpTextFieldsCount = 6{
         didSet{
@@ -107,7 +26,7 @@ public class SROTPView: UIView {
     }
     var activeTextField:OTPTextField?
     public var otpType:SROTPType = .Bordered
-
+    
     var textFieldsCollection: [OTPTextField] = []
     public var showsWarningColor = false
     public var hasEnteredAllOTP = false
@@ -125,7 +44,7 @@ public class SROTPView: UIView {
     public var otpTextFieldActiveBorderColor = UIColor.white
     public var otpEnteredString :((String)->())?
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
@@ -134,16 +53,60 @@ public class SROTPView: UIView {
     }
     
     
+    public func setUpOtpView(){
+        self.addSubview(otpStackView)
+        otpStackView.heightAnchor.constraint(equalToConstant: size).isActive = true
+        otpStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        otpStackView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        otpStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        self.setupStackView()
+        self.addOTPFields()
+        let topView = UIView()
+        topView.backgroundColor = UIColor.clear
+        topView.isUserInteractionEnabled = true
+        self.addSubview(topView)
+        topView.translatesAutoresizingMaskIntoConstraints = false
+        topView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        topView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        topView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        topView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(getResponder))
+        tapGesture.numberOfTapsRequired = 1
+        topView.addGestureRecognizer(tapGesture)
+    }
+    
+    public func initializeUI(){
+        self.refreshView()
+        
+    }
+    
+    //MARK:Get Touch event when touch on view
+    @objc func getResponder(){
+        self.assignResponder()
+    }
+    
+    public func set(warning:Bool){
+        self.otpStackView.transform = CGAffineTransform(translationX: 20, y: 0)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 10, options: .curveLinear, animations: {
+            self.transform = CGAffineTransform.identity
+            self.setWarningColor(isWarningColor: true)
+        }) { _ in
+            self.otpStackView.transform = CGAffineTransform.identity
+        }
+        
+    }
+    
+    
     //Customisation and setting stackView
     func setupStackView() {
-        self.backgroundColor = .clear
-        self.isUserInteractionEnabled = true
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.contentMode = .center
-        self.distribution = .equalSpacing
-        self.spacing = space
-        if (CGFloat(otpTextFieldsCount - 1)*space + CGFloat(otpTextFieldsCount)*size) > self.bounds.size.width{
-            self.spacing = (self.bounds.size.width - CGFloat(otpTextFieldsCount)*size) / (CGFloat(otpTextFieldsCount - 1))
+        otpStackView.backgroundColor = .clear
+        otpStackView.isUserInteractionEnabled = true
+        otpStackView.translatesAutoresizingMaskIntoConstraints = false
+        otpStackView.contentMode = .center
+        otpStackView.distribution = .equalSpacing
+        otpStackView.spacing = space
+        if (CGFloat(otpTextFieldsCount - 1)*space + CGFloat(otpTextFieldsCount)*size) > otpStackView.bounds.size.width{
+            otpStackView.spacing = (otpStackView.bounds.size.width - CGFloat(otpTextFieldsCount)*size) / (CGFloat(otpTextFieldsCount - 1))
         }
         
     }
@@ -151,7 +114,7 @@ public class SROTPView: UIView {
     //Adding each OTPfield to stack view
     func addOTPFields() {
         self.textFieldsCollection = []
-        for each in self.subviews{
+        for each in otpStackView.subviews{
             each.removeFromSuperview()
         }
         for index in 0..<otpTextFieldsCount{
@@ -187,9 +150,9 @@ public class SROTPView: UIView {
         textField.textContentType = .none
         //Adding constraints wrt to its parent i.e OTPStackView
         textField.translatesAutoresizingMaskIntoConstraints = false
-        self.addArrangedSubview(textField)
-        textField.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        textField.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        otpStackView.addArrangedSubview(textField)
+        textField.centerYAnchor.constraint(equalTo: otpStackView.centerYAnchor).isActive = true
+        textField.heightAnchor.constraint(equalTo: otpStackView.heightAnchor).isActive = true
         textField.widthAnchor.constraint(equalToConstant: size).isActive = true
         if secureEntry{
             textField.isSecureTextEntry = true
@@ -254,12 +217,9 @@ public class SROTPView: UIView {
         showsWarningColor = isWarningColor
     }
     
-}
-
-//TextField related operations
-extension OTPStackView: UITextFieldDelegate {
     
-     func textFieldDidBeginEditing(_ textField: UITextField) {
+    //TextField related operations
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         if showsWarningColor {
             setWarningColor(isWarningColor: false)
             showsWarningColor = false
@@ -269,18 +229,18 @@ extension OTPStackView: UITextFieldDelegate {
         }
     }
     
-     func textFieldDidEndEditing(_ textField: UITextField) {
+    public   func textFieldDidEndEditing(_ textField: UITextField) {
         if let field = textField as? OTPTextField{
             field.changeToInActiveBorder(color: otpTextFieldDefaultBorderColor,height:CGFloat(inactiveHeight))
         }
     }
     
     //switches between OTPTextfields
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+    public  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         
         let replacedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
         guard let textField = textField as? OTPTextField else { return true }
-       
+        
         if !replacedText.isEmpty &&  replacedText.rangeOfCharacter(from: .decimalDigits) == nil {
             return false
         }
@@ -303,20 +263,17 @@ extension OTPStackView: UITextFieldDelegate {
             textField.text? = string
             checkForValidity()
             return false
-                       
+            
         }else if (range.length == 1) {
-                    textField.previousTextField?.becomeFirstResponder()
-                    if textField.previousTextField != nil{
-                        activeTextField = textField.previousTextField
-                    }
-                    textField.text? = ""
-                    checkForValidity()
-                    return false
+            textField.previousTextField?.becomeFirstResponder()
+            if textField.previousTextField != nil{
+                activeTextField = textField.previousTextField
+            }
+            textField.text? = ""
+            checkForValidity()
+            return false
         }
         return false
     }
     
 }
-
-
-
