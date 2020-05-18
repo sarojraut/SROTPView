@@ -220,6 +220,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
     
     //TextField related operations
     public func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = ""
         if showsWarningColor {
             setWarningColor(isWarningColor: false)
             showsWarningColor = false
@@ -269,7 +270,6 @@ public class SROTPView: UIView,UITextFieldDelegate {
             if textField.previousTextField != nil{
                 activeTextField = textField.previousTextField
             }
-            textField.text? = ""
             checkForValidity()
             return false
         }

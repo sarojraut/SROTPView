@@ -1,5 +1,5 @@
 PODS:
-  - SROTPView (2.0.1)
+  - SROTPView (2.0.2)
 
 DEPENDENCIES:
   - SROTPView (from `/Users/sarojraut/SROTPView`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "/Users/sarojraut/SROTPView"
 
 SPEC CHECKSUMS:
-  SROTPView: 6d268fa97c980b06019ac183e4a23a1c89fddfab
+  SROTPView: 15d43dabedc9b70189de6f238045e021a6285939
 
 PODFILE CHECKSUM: b0775a3f2ae2f6908c3290dd25e4635ab18ad0f0
 
