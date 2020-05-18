@@ -1,6 +1,6 @@
 {
   "name": "SROTPView",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "summary": "OTP view is designed to be used as alternative to default textfield and it is beautifully designed",
   "description": "This OTP view is beautifully design to be used in otp field which support auto population of otp from message and change in the color of empty, filled and active field as well as error",
   "homepage": "https://github.com/sarojraut/SROTPView",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/sarojraut/SROTPView.git",
-    "tag": "2.0.0"
+    "tag": "2.0.1"
   },
   "swift_versions": "4.0",
   "platforms": {

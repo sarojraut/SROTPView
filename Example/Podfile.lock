@@ -1,16 +1,16 @@
 PODS:
-  - SROTPView (2.0.0)
+  - SROTPView (2.0.1)
 
 DEPENDENCIES:
-  - SROTPView (from `/Users/sarojraut/SROTPView/Example`)
+  - SROTPView (from `/Users/sarojraut/SROTPView`)
 
 EXTERNAL SOURCES:
   SROTPView:
-    :path: "/Users/sarojraut/SROTPView/Example"
+    :path: "/Users/sarojraut/SROTPView"
 
 SPEC CHECKSUMS:
-  SROTPView: 6e58e0e6887f50f88badc7b84f63b84374770c84
+  SROTPView: 6d268fa97c980b06019ac183e4a23a1c89fddfab
 
-PODFILE CHECKSUM: 1719c744cd0405b1e8f0085baf7b9815ea20b568
+PODFILE CHECKSUM: b0775a3f2ae2f6908c3290dd25e4635ab18ad0f0
 
 COCOAPODS: 1.7.5

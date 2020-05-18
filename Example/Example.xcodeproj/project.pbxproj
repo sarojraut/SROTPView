@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		37194FC7E2DAA71EA827C82B /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E719692D537DBA33A36094 /* Pods_ExampleTests.framework */; };
+		501274AF2473078E001E36A4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 501274AE2473078E001E36A4 /* Info.plist */; };
 		5425290391360624723006C4 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6023BA3AAF9711D6437BAE /* Pods_Example.framework */; };
 		58B9B22F8E1D747726B92006 /* Pods_ExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C818A6DDBA707BD35E19409 /* Pods_ExampleUITests.framework */; };
 		840424C72387B28900D1333E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840424C62387B28900D1333E /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 		11A872B38A822B5AFD25CA7A /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		262208E7FA1F862335E1F53F /* Pods-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleUITests.debug.xcconfig"; path = "Target Support Files/Pods-ExampleUITests/Pods-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		278A05586C24B708BA035D37 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ExampleTests/Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		501274AE2473078E001E36A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		56E719692D537DBA33A36094 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6023BA3AAF9711D6437BAE /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840424C32387B28900D1333E /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +51,6 @@
 		840424CD2387B28900D1333E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		840424CF2387B28D00D1333E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		840424D22387B28D00D1333E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		840424D42387B28D00D1333E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		840424D92387B28D00D1333E /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		840424DD2387B28D00D1333E /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		840424DF2387B28D00D1333E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,7 +143,7 @@
 				840424CC2387B28900D1333E /* Main.storyboard */,
 				840424CF2387B28D00D1333E /* Assets.xcassets */,
 				840424D12387B28D00D1333E /* LaunchScreen.storyboard */,
-				840424D42387B28D00D1333E /* Info.plist */,
+				501274AE2473078E001E36A4 /* Info.plist */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -273,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				501274AF2473078E001E36A4 /* Info.plist in Resources */,
 				840424D32387B28D00D1333E /* LaunchScreen.storyboard in Resources */,
 				840424D02387B28D00D1333E /* Assets.xcassets in Resources */,
 				840424CE2387B28900D1333E /* Main.storyboard in Resources */,

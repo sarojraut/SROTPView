@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name             = 'SROTPView'
-  s.version          = '2.0.0'
+  s.version          = '2.0.1'
   s.summary          = 'OTP view is designed to be used as alternative to default textfield and it is beautifully designed'
  
   s.description      = <<-DESC
 This OTP view is beautifully design to be used in otp field which support auto population of otp from message and change in the color of empty, filled and active field as well as error 
                        DESC
  
-   s.homepage         = 'https://github.com/sarojraut/SROTPView'
+  s.homepage         = 'https://github.com/sarojraut/SROTPView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.screenshots     = 'https://github.com/sarojraut/SROTPView/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%20Xs%20-%202019-11-22%20at%2012.07.06.png'
 
