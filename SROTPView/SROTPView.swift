@@ -14,6 +14,7 @@ public enum SROTPType {
     case UnderLined
 }
 
+
 public class SROTPView: UIView,UITextFieldDelegate {
     
     
@@ -25,8 +26,9 @@ public class SROTPView: UIView,UITextFieldDelegate {
         }
     }
     var activeTextField:OTPTextField?
-    public var otpType:SROTPType = .Bordered
-    
+    public var otpType:SROTPType = .UnderLined
+    public var keyboardType:UIKeyboardType = .numberPad
+
     var textFieldsCollection: [OTPTextField] = []
     public var showsWarningColor = false
     public var hasEnteredAllOTP = false
@@ -148,7 +150,6 @@ public class SROTPView: UIView,UITextFieldDelegate {
         }
         textField.delegate = self
         textField.textContentType = .none
-        //Adding constraints wrt to its parent i.e OTPStackView
         textField.translatesAutoresizingMaskIntoConstraints = false
         otpStackView.addArrangedSubview(textField)
         textField.centerYAnchor.constraint(equalTo: otpStackView.centerYAnchor).isActive = true
@@ -164,7 +165,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
         textField.adjustsFontSizeToFitWidth = false
         textField.font = UIFont.systemFont(ofSize: 24)
         textField.textColor = otpTextFieldFontColor
-        textField.keyboardType = .numberPad
+        textField.keyboardType = keyboardType
         textField.otpType = self.otpType
         textField.addborder(color: otpTextFieldDefaultBorderColor,height: CGFloat(inactiveHeight))
     }
@@ -226,6 +227,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
             showsWarningColor = false
         }
         if let field = textField as? OTPTextField{
+            activeTextField = field
             field.changeToActiveBorder(color: otpTextFieldActiveBorderColor,height: CGFloat(activeHeight))
         }
     }
@@ -236,14 +238,19 @@ public class SROTPView: UIView,UITextFieldDelegate {
         }
     }
     
+  public  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     //switches between OTPTextfields
     public  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         
         let replacedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
         guard let textField = textField as? OTPTextField else { return true }
-        
-        if !replacedText.isEmpty &&  replacedText.rangeOfCharacter(from: .decimalDigits) == nil {
-            return false
+        if self.keyboardType == .numberPad{
+            if !replacedText.isEmpty &&  replacedText.rangeOfCharacter(from: .decimalDigits) == nil {
+                return false
+            }
         }
         
         if (range.length == 0){
@@ -270,6 +277,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
             if textField.previousTextField != nil{
                 activeTextField = textField.previousTextField
             }
+            
             checkForValidity()
             return false
         }

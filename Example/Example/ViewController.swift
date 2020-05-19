@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         otpView.otpTextFieldFontColor = UIColor.green
         otpView.activeHeight = 4
         otpView.inactiveHeight = 2
+        otpView.keyboardType = UIKeyboardType.alphabet
         otpView.otpType = .Rounded //.Rounded for round
         otpView.otpEnteredString = { pin in
             print("The entered pin is \(pin)")
