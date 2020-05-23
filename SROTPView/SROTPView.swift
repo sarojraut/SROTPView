@@ -12,7 +12,6 @@ public enum SROTPType {
     case Rounded
     case Bordered
     case UnderLined
-    case RoundDot
 }
 
 
@@ -47,7 +46,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
     public var otpTextFieldActiveBorderColor = UIColor.white
     public var otpEnteredString :((String)->())?
     let topView = UIView()
-    public var enableEachField = false
+    public var randomEditEnabled = false
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -67,7 +66,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
         self.setupStackView()
         self.addOTPFields()
         topView.backgroundColor = UIColor.clear
-        topView.isUserInteractionEnabled = !enableEachField
+        topView.isUserInteractionEnabled = !randomEditEnabled
         self.addSubview(topView)
         topView.translatesAutoresizingMaskIntoConstraints = false
         topView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -268,7 +267,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
                     textField.resignFirstResponder()
                 }
             }else{
-                if enableEachField {
+                if randomEditEnabled {
                     if textField.nextTextField?.text != ""{
                         if !(string.count == self.textFieldsCollection.count){
                           textField.text? = string

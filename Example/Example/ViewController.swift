@@ -18,14 +18,16 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         otpView.otpTextFieldsCount = 6
-        otpView.otpTextFieldActiveBorderColor = UIColor.white
-        otpView.otpTextFieldDefaultBorderColor = UIColor.green
-        otpView.otpTextFieldFontColor = UIColor.green
+        otpView.otpTextFieldActiveBorderColor = UIColor.darkGray
+        otpView.otpTextFieldDefaultBorderColor = UIColor.lightGray
+        otpView.otpTextFieldFontColor = UIColor.systemBlue
+        otpView.textBackgroundColor = UIColor.white
         otpView.activeHeight = 4
         otpView.inactiveHeight = 2
         otpView.keyboardType = UIKeyboardType.alphabet
-        otpView.otpType = .Rounded //.Rounded for round
-        otpView.enableEachField = true
+        otpView.otpType = .UnderLined //.Rounded for round
+        otpView.secureEntry = true
+        otpView.randomEditEnabled = true 
         otpView.otpEnteredString = { pin in
             print("The entered pin is \(pin)")
         }
