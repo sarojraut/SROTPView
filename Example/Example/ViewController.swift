@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         otpView.inactiveHeight = 2
         otpView.keyboardType = UIKeyboardType.alphabet
         otpView.otpType = .Rounded //.Rounded for round
+        otpView.enableEachField = true
         otpView.otpEnteredString = { pin in
             print("The entered pin is \(pin)")
         }

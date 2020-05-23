@@ -12,6 +12,7 @@ public enum SROTPType {
     case Rounded
     case Bordered
     case UnderLined
+    case RoundDot
 }
 
 
@@ -45,7 +46,9 @@ public class SROTPView: UIView,UITextFieldDelegate {
     public var textBackgroundColor = UIColor.clear
     public var otpTextFieldActiveBorderColor = UIColor.white
     public var otpEnteredString :((String)->())?
-    
+    let topView = UIView()
+    public var enableEachField = false
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -63,9 +66,8 @@ public class SROTPView: UIView,UITextFieldDelegate {
         otpStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         self.setupStackView()
         self.addOTPFields()
-        let topView = UIView()
         topView.backgroundColor = UIColor.clear
-        topView.isUserInteractionEnabled = true
+        topView.isUserInteractionEnabled = !enableEachField
         self.addSubview(topView)
         topView.translatesAutoresizingMaskIntoConstraints = false
         topView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -245,6 +247,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
     //switches between OTPTextfields
     public  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         
+        guard string.count <= self.textFieldsCollection.count else{return false}
         let replacedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
         guard let textField = textField as? OTPTextField else { return true }
         if self.keyboardType == .numberPad{
@@ -265,11 +268,36 @@ public class SROTPView: UIView,UITextFieldDelegate {
                     textField.resignFirstResponder()
                 }
             }else{
-                textField.nextTextField?.becomeFirstResponder()
-                activeTextField = textField.nextTextField
+                if enableEachField {
+                    if textField.nextTextField?.text != ""{
+                        if !(string.count == self.textFieldsCollection.count){
+                          textField.text? = string
+                          checkForValidity()
+                          return false
+                        }
+                    }else{
+                        if !(string.count == self.textFieldsCollection.count){
+                         textField.nextTextField?.becomeFirstResponder()
+                         activeTextField = textField.nextTextField
+                        }
+                    }
+                }else{
+                    textField.nextTextField?.becomeFirstResponder()
+                    activeTextField = textField.nextTextField
+                }
             }
-            textField.text? = string
-            checkForValidity()
+            if string.count == self.textFieldsCollection.count{
+                self.textFieldsCollection.last?.becomeFirstResponder()
+                self.endEditing(true)
+                for index in (0...string.count - 1){
+                    let charIndex = string.index(string.startIndex, offsetBy: index)
+                    print(charIndex)
+                    self.textFieldsCollection[index].text = "\(string[charIndex])"
+                }
+            }else{
+                textField.text? = string
+                checkForValidity()
+            }
             return false
             
         }else if (range.length == 1) {
@@ -285,3 +313,4 @@ public class SROTPView: UIView,UITextFieldDelegate {
     }
     
 }
+

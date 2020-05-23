@@ -82,3 +82,16 @@ class OTPTextField: UITextField {
         }
 }
 
+
+
+//class Indicator: UIView {
+//    var isNeedClear = false
+//    override func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//        self.layer.cornerRadius = rect.width/2
+//        self.clipsToBounds = true
+//        self.layer.borderWidth = 2
+//        self.layer.borderColor = UIColor.lightGray.cgColor
+//    }
+//
+//}
