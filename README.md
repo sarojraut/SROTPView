@@ -78,6 +78,11 @@ We would love you for the contribution to **SROTPView**, check the ``LICENSE`` f
 
 sarojraut09@gmail.com
 
+## Apps Using SROTPView
+https://apps.apple.com/kh/app/aeon-wallet-cambodia/id1328330562
+https://apps.apple.com/kh/app/aeon-wallet-agent-merchant/id1328867502
+https://apps.apple.com/np/app/global-smart-plus/id1565283667
+
 ## License
 
 SROTPView is available under the MIT license. See the LICENSE file for more info.
