@@ -14,7 +14,6 @@ public enum SROTPType {
     case UnderLined
 }
 
-
 public class SROTPView: UIView,UITextFieldDelegate {
     
     
@@ -26,9 +25,8 @@ public class SROTPView: UIView,UITextFieldDelegate {
         }
     }
     var activeTextField:OTPTextField?
-    public var otpType:SROTPType = .UnderLined
-    public var keyboardType:UIKeyboardType = .numberPad
-
+    public var otpType:SROTPType = .Bordered
+    
     var textFieldsCollection: [OTPTextField] = []
     public var showsWarningColor = false
     public var hasEnteredAllOTP = false
@@ -37,17 +35,18 @@ public class SROTPView: UIView,UITextFieldDelegate {
     public var otpTextFieldFontColor = UIColor.white
     public var otpTextFieldErrorColor = UIColor.red
     
-    public var activeHeight = 2
-    public var inactiveHeight = 2
+    public var cornerRediusValue: CGFloat = 4
+    public var activeHeight = 1
+    public var inactiveHeight = 1
     public var secureEntry = false
     //Colors
     public var otpTextFieldDefaultBorderColor = UIColor.white
+    
+    public var textBackgroundFilledColor = UIColor.gray
     public var textBackgroundColor = UIColor.clear
     public var otpTextFieldActiveBorderColor = UIColor.white
     public var otpEnteredString :((String)->())?
-    let topView = UIView()
-    public var randomEditEnabled = false
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -65,8 +64,9 @@ public class SROTPView: UIView,UITextFieldDelegate {
         otpStackView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         self.setupStackView()
         self.addOTPFields()
+        let topView = UIView()
         topView.backgroundColor = UIColor.clear
-        topView.isUserInteractionEnabled = !randomEditEnabled
+        topView.isUserInteractionEnabled = true
         self.addSubview(topView)
         topView.translatesAutoresizingMaskIntoConstraints = false
         topView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -147,10 +147,14 @@ public class SROTPView: UIView,UITextFieldDelegate {
             textField.layer.cornerRadius = self.size/2
             textField.clipsToBounds = true
         default:
+            textField.layer.cornerRadius = cornerRediusValue
+            textField.clipsToBounds = true
+
             break
         }
         textField.delegate = self
         textField.textContentType = .none
+        //Adding constraints wrt to its parent i.e OTPStackView
         textField.translatesAutoresizingMaskIntoConstraints = false
         otpStackView.addArrangedSubview(textField)
         textField.centerYAnchor.constraint(equalTo: otpStackView.centerYAnchor).isActive = true
@@ -166,7 +170,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
         textField.adjustsFontSizeToFitWidth = false
         textField.font = UIFont.systemFont(ofSize: 24)
         textField.textColor = otpTextFieldFontColor
-        textField.keyboardType = keyboardType
+        textField.keyboardType = .numberPad
         textField.otpType = self.otpType
         textField.addborder(color: otpTextFieldDefaultBorderColor,height: CGFloat(inactiveHeight))
     }
@@ -223,12 +227,12 @@ public class SROTPView: UIView,UITextFieldDelegate {
     //TextField related operations
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
+        textField.backgroundColor = textBackgroundColor
         if showsWarningColor {
             setWarningColor(isWarningColor: false)
             showsWarningColor = false
         }
         if let field = textField as? OTPTextField{
-            activeTextField = field
             field.changeToActiveBorder(color: otpTextFieldActiveBorderColor,height: CGFloat(activeHeight))
         }
     }
@@ -239,24 +243,19 @@ public class SROTPView: UIView,UITextFieldDelegate {
         }
     }
     
-  public  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
     //switches between OTPTextfields
     public  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         
-        guard string.count <= self.textFieldsCollection.count else{return false}
         let replacedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
         guard let textField = textField as? OTPTextField else { return true }
-        if self.keyboardType == .numberPad{
-            if !replacedText.isEmpty &&  replacedText.rangeOfCharacter(from: .decimalDigits) == nil {
-                return false
-            }
+        
+        if !replacedText.isEmpty &&  replacedText.rangeOfCharacter(from: .decimalDigits) == nil {
+            return false
         }
         
         if (range.length == 0){
             if  replacedText == ""{
+                activeTextField?.backgroundColor = textBackgroundColor
                 activeTextField = textFieldsCollection[0]
                 activeTextField?.becomeFirstResponder()
                 return false
@@ -267,36 +266,17 @@ public class SROTPView: UIView,UITextFieldDelegate {
                     textField.resignFirstResponder()
                 }
             }else{
-                if randomEditEnabled {
-                    if textField.nextTextField?.text != ""{
-                        if !(string.count == self.textFieldsCollection.count){
-                          textField.text? = string
-                          checkForValidity()
-                          return false
-                        }
-                    }else{
-                        if !(string.count == self.textFieldsCollection.count){
-                         textField.nextTextField?.becomeFirstResponder()
-                         activeTextField = textField.nextTextField
-                        }
-                    }
-                }else{
-                    textField.nextTextField?.becomeFirstResponder()
-                    activeTextField = textField.nextTextField
-                }
+                textField.nextTextField?.becomeFirstResponder()
+                activeTextField = textField.nextTextField
             }
-            if string.count == self.textFieldsCollection.count{
-                self.textFieldsCollection.last?.becomeFirstResponder()
-                self.endEditing(true)
-                for index in (0...string.count - 1){
-                    let charIndex = string.index(string.startIndex, offsetBy: index)
-                    print(charIndex)
-                    self.textFieldsCollection[index].text = "\(string[charIndex])"
-                }
+            textField.text? = string
+            if string != ""{
+                textField.backgroundColor = textBackgroundFilledColor
             }else{
-                textField.text? = string
-                checkForValidity()
+                textField.backgroundColor = textBackgroundColor
             }
+
+            checkForValidity()
             return false
             
         }else if (range.length == 1) {
@@ -304,7 +284,6 @@ public class SROTPView: UIView,UITextFieldDelegate {
             if textField.previousTextField != nil{
                 activeTextField = textField.previousTextField
             }
-            
             checkForValidity()
             return false
         }
@@ -312,4 +291,3 @@ public class SROTPView: UIView,UITextFieldDelegate {
     }
     
 }
-

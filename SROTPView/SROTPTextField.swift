@@ -47,10 +47,14 @@ class OTPTextField: UITextField {
               border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
               border.frame = CGRect(x: 0, y: frame.size.height - 4, width: frame.size.width, height: height)
          }
-        
-        
-       
     }
+        
+//        func changeToFilledBackground(color:UIColor){
+//            if text != "" {
+//                self.layer.backgroundColor = color.cgColor
+//            }
+//        }
+       
 
     func changeToErrorBorder(color:UIColor,height:CGFloat){
         switch otpType {
