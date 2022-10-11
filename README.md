@@ -7,7 +7,7 @@
 
 ## Example
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/underline.png)
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/round.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/rounded.png)
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/pasted.png)
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/filled.png)
 
