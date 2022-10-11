@@ -10,7 +10,7 @@
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/bordered.png)
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/round.png)
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/paste.png)
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/Simulator Screen Shot - iPhone 11 - 2022-10-11 at 17.09.24.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/filled.png)
 
 
 
