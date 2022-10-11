@@ -8,7 +8,7 @@
 ## Example
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/underlined.png)
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/round.png)
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/borderedOTPShown.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/paste.png)
 ![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/filled.png)
 
 
