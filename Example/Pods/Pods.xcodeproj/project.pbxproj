@@ -528,9 +528,9 @@
 			};
 			name = Release;
 		};
-		5BC8A96A275F0BB5088B209CBAA5C94B /* Debug */ = {
+		35D7DE245A2CDDED9959B66CACCA4EDF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 772D366A6C356BAEBC5C77A02C9040BC /* SROTPView.debug.xcconfig */;
+			baseConfigurationReference = AEDF8343245CF0F1E568FBD4DDFF7018 /* SROTPView.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -544,7 +544,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SROTPView/SROTPView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SROTPView/SROTPView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,10 +558,11 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -803,9 +804,9 @@
 			};
 			name = Debug;
 		};
-		B90171CD28AB140C2C6C22EDA659C8C9 /* Release */ = {
+		EB9A0B273A453B4A9C8EA78499632BA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEDF8343245CF0F1E568FBD4DDFF7018 /* SROTPView.release.xcconfig */;
+			baseConfigurationReference = 772D366A6C356BAEBC5C77A02C9040BC /* SROTPView.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -819,7 +820,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SROTPView/SROTPView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SROTPView/SROTPView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -833,11 +834,10 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		FD61B8B00E61ADBE2B0CFB5986D5E749 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -947,8 +947,8 @@
 		B1884B3316B64B18394076DAD04CC44C /* Build configuration list for PBXNativeTarget "SROTPView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5BC8A96A275F0BB5088B209CBAA5C94B /* Debug */,
-				B90171CD28AB140C2C6C22EDA659C8C9 /* Release */,
+				EB9A0B273A453B4A9C8EA78499632BA3 /* Debug */,
+				35D7DE245A2CDDED9959B66CACCA4EDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
