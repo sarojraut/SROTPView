@@ -24,10 +24,8 @@ class ViewController: UIViewController {
         otpView.textBackgroundColor = UIColor.white
         otpView.activeHeight = 4
         otpView.inactiveHeight = 2
-        otpView.keyboardType = UIKeyboardType.alphabet
         otpView.otpType = .UnderLined //.Rounded for round
         otpView.secureEntry = true
-        otpView.randomEditEnabled = true 
         otpView.otpEnteredString = { pin in
             print("The entered pin is \(pin)")
         }
