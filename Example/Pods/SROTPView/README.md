@@ -6,10 +6,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/SROTPView.svg?style=flat)](https://cocoapods.org/pods/SROTPView)
 
 ## Example
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/underlined.png)
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/bordered.png)
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/round.png)
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/paste.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/underline.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/rounded.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/pasted.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/filled.png)
+
 
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
