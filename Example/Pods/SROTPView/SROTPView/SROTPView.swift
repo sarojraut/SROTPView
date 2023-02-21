@@ -228,8 +228,6 @@ public class SROTPView: UIView,UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
         textField.backgroundColor = textBackgroundColor
-        hasEnteredAllOTP = false
-        otpEnteredString?(self.getOTP())
         if showsWarningColor {
             setWarningColor(isWarningColor: false)
             showsWarningColor = false
