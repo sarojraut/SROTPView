@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SROTPView'
-  s.version          = '2.1.4'
+  s.version          = '2.1.5'
   s.summary          = 'OTP view is designed to be used as alternative to default textfield and it is beautifully designed'
  
   s.description      = <<-DESC
@@ -18,7 +18,7 @@ This OTP view is beautifully design to be used in otp field which support auto p
   s.swift_version = '4.0'
 
  
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.source_files = 'SROTPView/SROTPView.swift','SROTPView/SROTPTextField.swift' , "LICENSE.txt"
   
  

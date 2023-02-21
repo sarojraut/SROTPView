@@ -6,7 +6,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/SROTPView.svg?style=flat)](https://cocoapods.org/pods/SROTPView)
 
 ## Example
-![alt text](https://github.com/sarojraut/SROTPView/blob/master/sample.gif)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/underlined.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/bordered.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/round.png)
+![alt text](https://github.com/sarojraut/SROTPView/blob/master/screenshots/paste.png)
+
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
@@ -44,22 +48,25 @@ class ClassThatUseThisLibrary: UIViewController {
 
     @IBOutlet weak var otpView: SROTPView! //dont use SROTPField use SROTPView
     
-    override func viewWillAppear(_ animated: Bool) {
+   override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        otpView.otpTextFieldsCount = 4
+        otpView.otpTextFieldsCount = 6
         otpView.otpTextFieldActiveBorderColor = UIColor.white
-        otpView.otpTextFieldDefaultBorderColor = UIColor.white
-        otpView.otpTextFieldFontColor = UIColor.white
-        otpView.cursorColor = UIColor.white
-        otpView.otpTextFieldBorderWidth = 2
+        otpView.otpTextFieldDefaultBorderColor = UIColor.green
+        otpView.otpTextFieldFontColor = UIColor.green
+        otpView.activeHeight = 4
+        otpView.inactiveHeight = 2
+        otpView.otpType = .Rounded //.Rounded for round
         otpView.otpEnteredString = { pin in
             print("The entered pin is \(pin)")
         }
+        otpView.setUpOtpView()
     }
+       
+    override func viewDidAppear(_ animated: Bool) {
+               otpView.initializeUI()
+        }
     
-    override func viewDidLayoutSubviews() {
-         otpView.initializeUI()
-    }
 }
 
 ```
@@ -70,6 +77,14 @@ We would love you for the contribution to **SROTPView**, check the ``LICENSE`` f
 ## Author
 
 sarojraut09@gmail.com
+
+## Apps Using SROTPView
+AeonWallet Cambodia
+https://apps.apple.com/kh/app/aeon-wallet-cambodia/id1328330562
+AeonWallet agent/merchant
+https://apps.apple.com/kh/app/aeon-wallet-agent-merchant/id1328867502
+Global Smart Plus
+https://apps.apple.com/np/app/global-smart-plus/id1565283667
 
 ## License
 
