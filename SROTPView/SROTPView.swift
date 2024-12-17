@@ -26,6 +26,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
     }
     var activeTextField:OTPTextField?
     public var otpType:SROTPType = .Bordered
+    public var customFont: UIFont?
     
     var textFieldsCollection: [OTPTextField] = []
     public var showsWarningColor = false
@@ -168,7 +169,7 @@ public class SROTPView: UIView,UITextFieldDelegate {
         textField.backgroundColor = textBackgroundColor
         textField.textAlignment = .center
         textField.adjustsFontSizeToFitWidth = false
-        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.customFont = customFont ?? UIFont.systemFont(ofSize: 24)
         textField.textColor = otpTextFieldFontColor
         textField.keyboardType = .numberPad
         textField.otpType = self.otpType
